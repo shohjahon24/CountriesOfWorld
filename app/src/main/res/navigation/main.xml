@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="uz.hashteam.countriesofworld.ui.main.MainFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_countryFragment"
+            app:destination="@id/countryFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainFragment_to_capitalFragment"
+            app:destination="@id/capitalFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainFragment_to_testFragment"
+            app:destination="@id/testFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/countryFragment"
+        android:name="uz.hashteam.countriesofworld.ui.country.CountryFragment"
+        android:label="CountryFragment"
+        tools:layout="@layout/fragment_country">
+        <action
+            android:id="@+id/action_countryFragment_to_contentFragment"
+            app:destination="@id/contentFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/capitalFragment"
+        android:name="uz.hashteam.countriesofworld.ui.capital.CapitalFragment"
+        android:label="CapitalFragment"
+        tools:layout="@layout/fragment_capital">
+        <action
+            android:id="@+id/action_capitalFragment_to_contentFragment"
+            app:destination="@id/contentFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/contentFragment"
+        android:name="uz.hashteam.countriesofworld.ui.content.ContentFragment"
+        android:label="ContentFragment"
+        tools:layout="@layout/fragment_content" />
+    <fragment
+        android:id="@+id/testFragment"
+        android:name="uz.hashteam.countriesofworld.ui.test.TestFragment"
+        android:label="TestFragment"
+        tools:layout="@layout/fragment_test" >
+        <action
+            android:id="@+id/action_testFragment_to_resultFragment"
+            app:destination="@id/resultFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
+            app:popUpTo="@id/mainFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="uz.hashteam.countriesofworld.ui.test.ResultFragment"
+        android:label="ResultFragment"
+        tools:layout="@layout/fragment_result"/>
+</navigation>

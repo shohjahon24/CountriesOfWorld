@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">CountriesOfWorld</string>
+    <string name="countries">Dunyo mamlakatlari</string>
+    <string name="country">Davlatlar</string>
+    <string name="capital">Poytaxtlar</string>
+    <string name="test">Test savollari</string>
+    <string name="countriesOfWorld">Dunyo mamlakatlari</string>
+    <string name="search">Search…</string>
+    <string name="result_test">Test natijasi</string>
+    <string name="your_result">Sizning natija:</string>
+</resources>
