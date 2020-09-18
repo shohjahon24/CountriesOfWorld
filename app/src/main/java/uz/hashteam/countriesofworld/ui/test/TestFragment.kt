@@ -1,5 +1,6 @@
 package uz.hashteam.countriesofworld.ui.test
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
 import android.view.KeyEvent
@@ -8,6 +9,7 @@ import android.widget.Button
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
+import kotlinx.android.synthetic.main.dialog_end_test.view.*
 import kotlinx.android.synthetic.main.fragment_test.*
 import uz.hashteam.countriesofworld.R
 import uz.hashteam.countriesofworld.repository.Repo
@@ -60,6 +62,21 @@ class TestFragment : BaseFragment(R.layout.fragment_test), View.OnClickListener 
     }
 
     override fun onBackPressed() {
-        Log.d("AAA", "pressed")
+        sureFinish()
+    }
+
+    private fun sureFinish() {
+        val dialog = AlertDialog.Builder(context)
+        val view = layoutInflater.inflate(R.layout.dialog_end_test, null)
+        dialog.setView(view)
+        val d = dialog.create()
+        view.yes.setOnClickListener {
+            d.dismiss()
+            finish()
+        }
+        view.no.setOnClickListener {
+            d.dismiss()
+        }
+        d.show()
     }
 }

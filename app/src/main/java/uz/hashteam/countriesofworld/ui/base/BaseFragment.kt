@@ -17,6 +17,8 @@ abstract class BaseFragment(@LayoutRes layout: Int) : Fragment(layout) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        view.isFocusableInTouchMode = true
+        view.requestFocus()
         view.setOnKeyListener { _, keyCode, e ->
             if (keyCode == KeyEvent.KEYCODE_BACK && e.action == KeyEvent.ACTION_DOWN) {
                 Log.d("AAA", "AAA")
