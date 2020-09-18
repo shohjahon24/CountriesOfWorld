@@ -24,7 +24,6 @@ import uz.hashteam.countriesofworld.util.blockClickable
 class CapitalFragment : BaseFragment(R.layout.fragment_capital), View.OnClickListener, TextWatcher,
     CallBack {
 
-    private var isClicked = false
     private val viewModel: CapitalViewModel by activityViewModels()
     private lateinit var adapter: CapitalAdapter
 
@@ -44,8 +43,7 @@ class CapitalFragment : BaseFragment(R.layout.fragment_capital), View.OnClickLis
 
     private fun setupObserves() {
         viewModel.countries.observe(this, Observer {
-            if (!isClicked)
-                adapter.setData(it)
+            adapter.setData(it)
         })
     }
 
@@ -87,8 +85,8 @@ class CapitalFragment : BaseFragment(R.layout.fragment_capital), View.OnClickLis
     }
 
     override fun onClick(position: Int) {
-        isClicked = true
         val b = Bundle()
+        hideKeyBoard()
         b.putInt("id", position)
         b.putBoolean("sort", true)
         findNavController().navigate(R.id.action_capitalFragment_to_contentFragment, b)

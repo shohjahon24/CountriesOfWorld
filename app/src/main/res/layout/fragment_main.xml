@@ -8,7 +8,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@drawable/worldcities"
+        android:background="@drawable/back"
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <TextView
@@ -85,29 +85,26 @@
         android:layout_marginBottom="2dp"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <ImageButton
+        <Button
             android:id="@+id/other"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@null"
             android:layout_gravity="start"
-            android:src="@drawable/ic_other_apps" />
+            android:background="@drawable/other_apps" />
 
-        <ImageButton
+        <Button
             android:id="@+id/rate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@null"
-            android:src="@drawable/rate" />
+            android:background="@drawable/rate" />
 
-        <ImageButton
+        <Button
             android:id="@+id/share"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@null"
             android:layout_gravity="end"
-            android:src="@drawable/ic_share" />
+            android:background="@drawable/share" />
     </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

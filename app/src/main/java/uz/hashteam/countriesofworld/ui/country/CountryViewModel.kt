@@ -1,5 +1,6 @@
 package uz.hashteam.countriesofworld.ui.country
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -17,12 +18,13 @@ class CountryViewModel : ViewModel() {
             val d = repo.getCountries()
             countries.value = d
             data = d
+            Log.d("AAA", "${d.size}")
         }
     }
 
     fun search(q: String) {
         val result: ArrayList<Country> = ArrayList()
-        if (q.isNullOrBlank())
+        if (q.isEmpty())
             countries.value = data
         else {
             data.forEach {

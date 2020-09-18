@@ -1,9 +1,11 @@
 package uz.hashteam.countriesofworld.ui.main
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.net.Uri
 import android.view.View
 import androidx.navigation.fragment.findNavController
+import kotlinx.android.synthetic.main.dialog_end_test.view.*
 import kotlinx.android.synthetic.main.fragment_main.*
 import uz.hashteam.countriesofworld.R
 import uz.hashteam.countriesofworld.ui.base.BaseFragment
@@ -51,4 +53,24 @@ class MainFragment : BaseFragment(R.layout.fragment_main), View.OnClickListener 
             )
         )
     }
+
+    override fun onBackPressed() {
+        sureFinish()
+    }
+
+    private fun sureFinish() {
+        val dialog = AlertDialog.Builder(context)
+        val view = layoutInflater.inflate(R.layout.dialog_exit, null)
+        dialog.setView(view)
+        val d = dialog.create()
+        view.yes.setOnClickListener {
+            d.dismiss()
+            activity?.let { it.finish() }
+        }
+        view.no.setOnClickListener {
+            d.dismiss()
+        }
+        d.show()
+    }
+
 }

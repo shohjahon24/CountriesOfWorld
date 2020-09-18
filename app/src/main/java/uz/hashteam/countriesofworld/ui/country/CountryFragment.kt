@@ -3,6 +3,7 @@ package uz.hashteam.countriesofworld.ui.country
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
@@ -33,12 +34,16 @@ class CountryFragment : BaseFragment(R.layout.fragment_country), View.OnClickLis
         adapter = CountryAdapter()
         adapter.countryCallBack = this
         list_country.adapter = adapter
+        if (isClicked) {
+            action_bar.visibility = View.INVISIBLE
+            ll_search.visibility = View.VISIBLE
+            showKeyboard(search_view)
+        }
         setupObserves()
     }
 
     private fun setupObserves() {
         viewModel.countries.observe(this, Observer {
-            if (!isClicked)
             adapter.setData(it)
         })
     }
@@ -47,6 +52,7 @@ class CountryFragment : BaseFragment(R.layout.fragment_country), View.OnClickLis
         p0.blockClickable()
         when (p0?.id) {
             R.id.search -> {
+                isClicked = true
                 action_bar.visibility = View.INVISIBLE
                 ll_search.visibility = View.VISIBLE
                 showKeyboard(search_view)
@@ -56,6 +62,7 @@ class CountryFragment : BaseFragment(R.layout.fragment_country), View.OnClickLis
                 clear.visibility = View.INVISIBLE
             }
             R.id.close -> {
+                isClicked = false
                 hideKeyBoard()
                 search_view.setText("")
                 action_bar.visibility = View.VISIBLE
@@ -81,11 +88,12 @@ class CountryFragment : BaseFragment(R.layout.fragment_country), View.OnClickLis
     }
 
     override fun onClick(position: Int) {
-        isClicked = true
-        viewModel.search("")
+        // viewModel.search("")
         val b = Bundle()
         b.putInt("id", position)
         b.putBoolean("sort", false)
+        isClicked = false
+        hideKeyBoard()
         findNavController().navigate(R.id.action_countryFragment_to_contentFragment, b)
     }
 }

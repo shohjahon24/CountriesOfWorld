@@ -21,9 +21,8 @@ class CountryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             it.blockClickable()
             click?.invoke(data.id)
         }
-        Log.d("AAA", data.name)
         Glide.with(itemView.context).asBitmap()
             .load(Uri.parse("file:///android_asset/images/${data.imgName}_flag.png"))
-            .placeholder(R.drawable.belgium_flag).into(itemView.flag)
+            .error(R.drawable.belgium_flag).into(itemView.flag)
     }
 }

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/ws_dunyo_icon" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/countries"
+            android:textColor="@color/blackTextColor"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/s"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chiqishni xohlaysizmi?"
+        android:textColor="@color/blackTextColor"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@id/yes"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll" />
+
+    <Button
+        android:id="@+id/no"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="32dp"
+        android:background="?selectableItemBackground"
+        android:text="YO'Q"
+        android:textColor="#1031EC"
+        app:layout_constraintRight_toLeftOf="@id/yes"
+        app:layout_constraintTop_toBottomOf="@id/s" />
+
+    <Button
+        android:id="@+id/yes"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="32dp"
+        android:background="?selectableItemBackground"
+        android:text="HA"
+        android:textColor="#1031EC"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/no"
+        app:layout_constraintTop_toBottomOf="@id/s" />
+</androidx.constraintlayout.widget.ConstraintLayout>

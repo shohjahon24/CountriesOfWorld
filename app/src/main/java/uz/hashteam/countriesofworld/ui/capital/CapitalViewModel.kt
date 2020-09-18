@@ -1,5 +1,6 @@
 package uz.hashteam.countriesofworld.ui.capital
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -22,8 +23,10 @@ class CapitalViewModel : ViewModel() {
 
     fun search(q: String) {
         val result: ArrayList<Country> = ArrayList()
-        if (q.isNullOrBlank())
+        if (q.isEmpty()){
             countries.value = data
+            Log.d("AAA", "lllll")
+        }
         else {
             data.forEach {
                 if (it.capital.name.toLowerCase().contains(q.toLowerCase()))
